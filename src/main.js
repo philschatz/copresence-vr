@@ -37,9 +37,9 @@ function onLoad() {
   }
 
   // Ensure that we are either in a localhost or secure environment.
-  if (window.location.hostname !== 'localhost' && window.location.protocol !== 'https:') {
-    window.location.protocol = 'https';
-  }
+  // if (window.location.hostname !== 'localhost' && window.location.protocol !== 'https:') {
+  //   window.location.protocol = 'https';
+  // }
 
   // Create the signal server.
   initSignalling();
@@ -124,7 +124,7 @@ function onPeerLeave(e) {
   var peerId = e.peerId;
   console.log('onPeerLeave', peerId);
   // TODO(smus): Make this work for more than one peer.
-  
+
   // TODO: Render the peer leaving for the right peer.
   peerRenderers[peerId].leave();
   delete peerRenderers[peerId];
@@ -292,7 +292,7 @@ function render() {
 
   // Send the pose if it's changed (throttled), or send a rarer heartbeat (for
   // new clients).
-  if (lastMessageDelta > POSE_HEARTBEAT_MS || 
+  if (lastMessageDelta > POSE_HEARTBEAT_MS ||
       (!pose.equals(lastSentPose) && lastMessageDelta > POSE_UPDATE_MS)) {
     var state = {
       type: 'pose',
@@ -305,7 +305,7 @@ function render() {
   var peerConnections = peerManager.establishedPeerConnections;
   for (var i = 0; i < peerConnections.length; i++) {
     var pc = peerConnections[i];
-    
+
     // If the connection isn't quite ready yet (possible if it was just
     // established), ignore it.
     if (!pc.isConnected()) {
