@@ -13033,9 +13033,9 @@ function onLoad() {
   }
 
   // Ensure that we are either in a localhost or secure environment.
-  if (window.location.hostname !== 'localhost' && window.location.protocol !== 'https:') {
-    window.location.protocol = 'https';
-  }
+//  if (window.location.hostname !== 'localhost' && window.location.protocol !== 'https:') {
+//    window.location.protocol = 'https';
+//  }
 
   // Create the signal server.
   initSignalling();
